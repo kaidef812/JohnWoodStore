@@ -1,0 +1,63 @@
+﻿<Window x:Class="JohnWoodStore.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JohnWoodStore.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="650"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/LoginWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource LogoText}"
+                   Text="JohnWoodStore"
+                   Grid.Row="1"/>
+
+        <StackPanel Style="{StaticResource GeneralPanel}"
+                    Grid.Row="2">
+            <StackPanel Style="{StaticResource InputBoxNamePanel}"
+                        Grid.Column="0">
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Логин:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Пароль:"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource InputBoxPanel}"
+                        Grid.Column="1">
+                <TextBox Style="{StaticResource InputLoginBox}"
+                         Text="{Binding LoginText}"/>
+                <PasswordBox Style="{StaticResource InputPasswordBox}"
+                             PasswordChanged="PasswordBox_PasswordChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource ButtonPanel}"
+                    Grid.Row="3">
+            <Button Style="{StaticResource MainButtons}"
+                    Command="{Binding Register}"
+                    Content="Зарегистрироваться"/>
+            <Button Style="{StaticResource MainButtons}"
+                    Command="{Binding Login}"
+                    Content="Войти"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

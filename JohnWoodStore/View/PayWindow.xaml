@@ -1,0 +1,58 @@
+﻿<Window x:Class="JohnWoodStore.View.PayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JohnWoodStore.View"
+        mc:Ignorable="d"
+        Title="PayWindow" Height="200" Width="350"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/PayWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Style="{StaticResource PaymentMethodPanel}"
+                    Grid.Row="1">
+            <TextBlock Style="{StaticResource NameBlock}" Text="Способ оплаты"/>
+            <ComboBox Style="{StaticResource MethodBox}"
+                      SelectedItem="{Binding SelectedMethod}"
+                      ItemsSource="{Binding PaymentMethods}"/>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource PaymentMethodPanel}"
+                    Grid.Row="2">
+            <TextBlock Style="{StaticResource NameBlock}"
+                       Text="Всего: "/>
+            <TextBlock Style="{StaticResource NameBlock}"
+                       Text="{Binding TotalCost}"/>
+        </StackPanel>
+        
+        <StackPanel Style="{StaticResource ButtonsPanel}"
+                    Grid.Row="3">
+            <Button Style="{StaticResource FunctionalButtonStyle}"
+                    Command="{Binding Cancel}"
+                    Content="Отмена"/>
+            <Button Style="{StaticResource FunctionalButtonStyle}"
+                    Command="{Binding Pay}"
+                    Content="Оформить"/>
+        </StackPanel>
+        
+    </Grid>
+
+</Window>

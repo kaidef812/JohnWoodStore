@@ -1,0 +1,68 @@
+﻿<Window x:Class="JohnWoodStore.View.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JohnWoodStore.View"
+        mc:Ignorable="d"
+        Title="CartWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/CartWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource LogoText}"
+                   Grid.Row="1"/>
+
+        <StackPanel Style="{StaticResource UserPanel}"
+                    Grid.Row="1">
+            <Button Style="{StaticResource UserInfoButtons}"
+                    Command="{Binding GoBack}"
+                    Content="назад"/>
+            <Button Style="{StaticResource UserInfoButtons}"
+                    Command="{Binding Pay}"
+                    Content="оформить"/>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource TotalInfoPanel}"
+                    Grid.Row="1">
+            <TextBlock Style="{StaticResource TotalText}"
+                       Text="К оплате: "/>
+            <TextBlock Style="{StaticResource TotalText}"
+                       Text="{Binding TotalCost}"/>
+        </StackPanel>
+        
+        <DataGrid Style="{StaticResource CatalogGrid}" 
+                  ItemsSource="{Binding Products, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Категория"
+                                    Binding="{Binding CategoryName}"/>
+                <DataGridTextColumn Header="Цена"
+                                    Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Количество"
+                                    Binding="{Binding Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+
+</Window>

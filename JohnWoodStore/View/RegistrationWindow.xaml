@@ -1,0 +1,97 @@
+﻿<Window x:Class="JohnWoodStore.View.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JohnWoodStore.View"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="475" Width="650"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/RegistrationWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="7"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Style="{StaticResource GeneralPanel}"
+                    Grid.Row="1">
+            <StackPanel Style="{StaticResource InputBoxNamePanel}">
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Логин:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Пароль:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Email:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="ФИО:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Номер телефона:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           Text="Лицо:"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           x:Name="textOrganizationName"
+                           Text="Организация"
+                           Visibility="Hidden"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           x:Name="textOrganizationAddress"
+                           Text="Адрес Организации"
+                           Visibility="Hidden"/>
+                <TextBlock Style="{StaticResource TextName}"
+                           x:Name="textUNP"
+                           Text="УНП"
+                           Visibility="Hidden"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource InputBoxPanel}">
+                <TextBox Style="{StaticResource InputBox}"
+                         Text="{Binding Login}"/>
+                <PasswordBox Style="{StaticResource InputPasswordBox}"
+                             PasswordChanged="PasswordBox_PasswordChanged"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         Text="{Binding Email}"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         Text="{Binding FullName}"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         Text="{Binding PhoneNumber}"/>
+                <ComboBox Style="{StaticResource SelectUserTypeBoxStyle}"
+                          SelectionChanged="ComboBox_SelectionChanged"
+                          ItemsSource="{Binding UserTypeName}"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         x:Name="inputOrganizationName"
+                         Text="{Binding OrganizationName}"
+                         Visibility="Hidden"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         x:Name="inputOrganizationAddress"
+                         Text="{Binding OrganizationAddress}"
+                         Visibility="Hidden"/>
+                <TextBox Style="{StaticResource InputBox}"
+                         x:Name="inputUNP"
+                         Text="{Binding UNP}"
+                         Visibility="Hidden"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource ButtonPanel}"
+                    Grid.Row="2">
+            <Button Style="{StaticResource MainButtons}"
+                    Command="{Binding Cancel}"
+                    Content="Отмена"/>
+            <Button Style="{StaticResource MainButtons}"
+                    Command="{Binding Register}"
+                    Content="Зарегистрироваться"/>
+        </StackPanel>
+        
+    </Grid>
+    
+</Window>

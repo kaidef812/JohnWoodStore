@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+    <_LastSelectedProfileId>D:\Programs\GitHub\JohnWoodStore\JohnWoodStore\JohnWoodStore\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\CartWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CatalogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PayWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RegistrationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\CartWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PayWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RegistrationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\CartWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\CatalogWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\LoginWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\PayWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\RegistrationWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Styles\UserInfoWindowStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserInfoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
